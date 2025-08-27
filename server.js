@@ -1,3 +1,14 @@
+/*
+   Comandos utilizados no terminal do vscode para criação do projeto (alguns adaptados para meu setup)
+   npm init -y
+   npm install express
+   npm install prisma --save-dev
+   npx prisma init
+   npx prisma db push
+   npm instal @prisma/client
+   npx prisma studio
+*/
+
 // primeiro passo e importar o express
 import express from 'express';
 
@@ -22,4 +33,7 @@ app.get('/users', (req, res) =>{
 });
 
 // é necessário iniciar o servidor na porta desejada
-app.listen(3000)
+app.listen(3000);
+
+// iniciando a integração com mongoDB xDDIEoQkzR67JJ3Q
+
