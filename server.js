@@ -31,3 +31,30 @@ app.get('/users', async (req, res) => {
 app.listen(3000, () => {
   console.log('🚀 Servidor rodando na porta 3000');
 });
+
+app.put('/users/:id', async (req, res) => {
+  try {
+    const user = await prisma.user.update({
+      where: { id: req.params.id },
+      data: {
+        email: req.body.email,
+        name: req.body.name,
+        age: req.body.age
+      }
+    });
+    res.status(201).json(user);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.delete('/users/:id', async (req, res) => {
+  try {
+    await prisma.user.delete({
+      where: { id: req.params.id }
+    });
+    res.status(204).send();
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
